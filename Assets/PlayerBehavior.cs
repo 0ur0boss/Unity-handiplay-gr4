@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerBehavior : MonoBehaviour
 {
-
-    
     public float speed = 100f;
     public Rigidbody2D rb2D;
     // Start is called before the first frame update
