@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
 public class AudioManagersingleton : MonoBehaviour
 {
 
@@ -34,3 +35,4 @@ public class AudioManagersingleton : MonoBehaviour
     }
 
 }
+*/
