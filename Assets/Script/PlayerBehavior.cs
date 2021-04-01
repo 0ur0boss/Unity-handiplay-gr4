@@ -23,14 +23,9 @@ public class PlayerBehavior : MonoBehaviour
         }
         
     }
-    // Update is called once per frame
-    public void Update()
-    { 
-           MovingRight();
-    }
+    
     void FixedUpdate()
     {
-     
-       
+      MovingRight();
     }
 }

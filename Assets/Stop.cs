@@ -23,7 +23,7 @@ public class Stop : MonoBehaviour
     {
         if(collision.CompareTag("Player"))  
         {
-            playerSpeed.Speed = 0;
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
     }
 
