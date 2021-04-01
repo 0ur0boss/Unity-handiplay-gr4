@@ -26,14 +26,14 @@ public class MainMenu : MonoBehaviour
         creditsWindow.SetActive(true);
     }
 
-    public void CloseSettingsWindow ()
+    /*public void CloseSettingsWindow ()
     {
         settingsWindow.SetActive(false);
     }
     public void CloseSettingsWindow ()
     {
         settingsWindow.SetActive(false);
-    }
+    }*/
 
     public void QuitGame () 
     {
