@@ -33,7 +33,7 @@ public class MainMenu : MonoBehaviour
     public void CloseSettingsWindow ()
     {
         settingsWindow.SetActive(false);
-    }²   
+    }
 
     public void QuitGame () 
     {
