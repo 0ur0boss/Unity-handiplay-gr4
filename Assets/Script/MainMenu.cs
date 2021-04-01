@@ -44,7 +44,7 @@ public class MainMenu : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(creditsFirstButton);
     }
 
-    /*public void CloseSettingsWindow ()
+    public void CloseSettingsWindow ()
     {
         settingsWindow.SetActive(false);
         menuWindow.SetActive(true);
@@ -52,15 +52,10 @@ public class MainMenu : MonoBehaviour
     }
     public void CloseCreditsWindow ()
     {
-<<<<<<< HEAD:Assets/MainMenu.cs
         creditsWindow.SetActive(false);
         menuWindow.SetActive(true);
         BackToMenuWindow();
     }
-=======
-        settingsWindow.SetActive(false);
-    }*/
->>>>>>> 965e56dac12d2a03846596a78143f83d30845b76:Assets/Script/MainMenu.cs
 
     public void QuitGame () 
     {
