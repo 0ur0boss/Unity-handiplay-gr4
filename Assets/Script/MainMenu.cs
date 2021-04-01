@@ -7,22 +7,33 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public string MainCamera;
+    public string LevelToLoad;
+    public GameObject settingsWindow;
+    public GameObject creditsWindow;
 
     public void StartGame () 
     {
-        SceneManager.LoadScene(MainCamera);
+        SceneManager.LoadScene(LevelToLoad);
     }
 
-    public void OptionsButtons () 
+    public void SettingsButtons () 
     {
-    
+        settingsWindow.SetActive(true);
     }
 
     public void CreditsButtons () 
     {
-
+        creditsWindow.SetActive(true);
     }
+
+    /*public void CloseSettingsWindow ()
+    {
+        settingsWindow.SetActive(false);
+    }
+    public void CloseSettingsWindow ()
+    {
+        settingsWindow.SetActive(false);
+    }*/
 
     public void QuitGame () 
     {
