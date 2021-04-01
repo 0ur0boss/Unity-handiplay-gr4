@@ -5,8 +5,9 @@ using UnityEngine;
 public class PlayerBehavior : MonoBehaviour
 
 {
-    public float speed = 100f;
+
     public Rigidbody2D rb2D;
+    public int Speed = 25;
 
     // Start is called before the first frame update
     void Start()
@@ -17,15 +18,15 @@ public class PlayerBehavior : MonoBehaviour
     public void MovingRight()
     {
         if (Input.GetAxis("Horizontal") > 0f)
-        {
-            GetComponent<Rigidbody2D>().AddForce(Vector2.right * speed);
+        {   
+            GetComponent<Rigidbody2D>().AddForce(Vector2.right * Speed);
         }
-
+        
     }
     // Update is called once per frame
     public void Update()
     { 
-            MovingRight();
+           MovingRight();
     }
     void FixedUpdate()
     {

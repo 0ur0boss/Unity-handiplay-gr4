@@ -6,33 +6,24 @@ public class Stop : MonoBehaviour
 {
     public GameObject Player;
     private GameObject PlayerSpawn;
-    
-   public GameObject Script;
-   PlayerBehavior PlayerScript;
-    MovingRight speed;
-   
+    public PlayerBehavior playerSpeed;
+
 
     void Start()
     {
-        PlayerScript = Script.GetComponent<PlayerBehaviour>();
-        speed = 0f;
+
     }
 
    public void Update()
     {
-        PlayerScript.MovingRight();
+
     }
 
-    private void Awake()
+    private void OnTriggerEnter2D(Collider2D collision) 
     {
-        playerSpawn = GameObject.FindGameObjectWithTag("Player").transform;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collison.CompareTag("Player"))
+        if(collision.CompareTag("Player"))  
         {
-            Player.spawn.position = transform.position;
+            playerSpeed.Speed = 0;
         }
     }
 
