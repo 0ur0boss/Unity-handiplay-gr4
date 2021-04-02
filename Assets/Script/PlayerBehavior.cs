@@ -15,10 +15,18 @@ public class PlayerBehavior : MonoBehaviour
             GetComponent<Rigidbody2D>().AddForce(Vector2.right * Speed);
         }
     }
+    public void MovingLeft()
+    {
+        if (Input.GetAxis("Horizontal") < 0f)
+        {
+            GetComponent<Rigidbody2D>().AddForce(Vector2.left * Speed);
+        }
+    }
 
 
     void FixedUpdate()
     {
         MovingRight();
+        MovingLeft();
     }
 }
