@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             Vector3 v = stick.transform.localScale;
-            v.y = v.y + 0.1f;
+            v.y = v.y + 0.01f;
             stick.transform.localScale = v;
         }
     }
