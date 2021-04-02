@@ -13,7 +13,7 @@ using UnityEngine;
 // one is enabled ; and the map indication is updated accordingly
 public class Teleport : MonoBehaviour
 {
-    /*public GameObject m_teleportTo = null;
+    public GameObject m_teleportTo = null;
 
     private GameObject m_player = null;
 
@@ -44,5 +44,5 @@ public class Teleport : MonoBehaviour
                 m_player.transform.position = m_teleportTo.transform.position;
             }
         }
-    }*/
+    }
 }

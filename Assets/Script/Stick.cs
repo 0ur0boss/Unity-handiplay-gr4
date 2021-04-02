@@ -20,6 +20,9 @@ public class Stick : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(Vector3.back * 1);
+        if (Input.GetKey(KeyCode.E))
+        {
+            transform.Rotate(Vector3.back * 1);
+        }
     }
 }
