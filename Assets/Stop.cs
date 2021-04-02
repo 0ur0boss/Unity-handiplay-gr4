@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Stop : MonoBehaviour
 {
+    public Rigidbody2D rb2D;
     public GameObject Player;
     private GameObject PlayerSpawn;
     public PlayerBehavior playerSpeed;
@@ -23,7 +24,7 @@ public class Stop : MonoBehaviour
     {
         if(collision.CompareTag("Player"))  
         {
-            GetComponent<Rigidbody>().velocity = Vector3.zero;
+            GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         }
     }
 
