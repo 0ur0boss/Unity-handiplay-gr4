@@ -7,6 +7,8 @@ TagManager:
   - MovingPlateform
   - Plateform
   - TriggerStop
+  - Stop
+  - TriggerStop1
   layers:
   - Default
   - TransparentFX
