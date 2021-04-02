@@ -26,7 +26,6 @@ public class Stop : MonoBehaviour
         if(collision.CompareTag("Player"))  
         {
             rb2D.velocity = Vector3.zero;
-            Debug.Log("test");
         }
     }
 

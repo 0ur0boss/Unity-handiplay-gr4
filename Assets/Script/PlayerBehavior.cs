@@ -7,9 +7,19 @@ public class PlayerBehavior : MonoBehaviour
 {
     public Rigidbody2D rb2D;
     public int Speed = 25;
+    Rigidbody2D m_rb2D;
+    SpriteRenderer m_renderer;
+
+    void Awake()
+    {
+        m_rb2D = gameObject.GetComponent<Rigidbody2D>();
+        m_renderer = gameObject.GetComponent<SpriteRenderer>();
+    }
 
     public void MovingRight()
     {
+        float horizontalOffset = Input.GetAxis("Horizontal");
+        float verticalOffset = Input.GetAxis("Vertical");
         if (Input.GetAxis("Horizontal") > 0f)
         {
             GetComponent<Rigidbody2D>().AddForce(Vector2.right * Speed);
