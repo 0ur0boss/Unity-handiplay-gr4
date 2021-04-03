@@ -9,6 +9,11 @@ TagManager:
   - TriggerStop
   - Stop
   - TriggerStop1
+  - InstantDialog
+  - NPC
+  - Stick
+  - stickMoins
+  - stickPlus
   layers:
   - Default
   - TransparentFX
@@ -45,4 +50,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 563412865
     locked: 0
