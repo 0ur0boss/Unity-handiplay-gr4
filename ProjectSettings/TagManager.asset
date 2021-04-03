@@ -12,6 +12,8 @@ TagManager:
   - InstantDialog
   - NPC
   - Stick
+  - stickMoins
+  - stickPlus
   layers:
   - Default
   - TransparentFX
