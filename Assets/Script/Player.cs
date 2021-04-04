@@ -14,11 +14,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        /*if (Input.GetMouseButton(0))
         {
-            Vector3 v = stick.transform.localScale;
-            v.y = v.y + 0.01f;
+            Vector2 v = stick.transform.localScale;
+            v.y = v.y + 0.0f;
             stick.transform.localScale = v;
-        }
+        }*/
     }
 }

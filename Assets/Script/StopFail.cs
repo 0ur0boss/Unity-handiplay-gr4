@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StopStick : MonoBehaviour
+public class StopFail : MonoBehaviour
 {
     public Rigidbody2D rb2D;
     public GameObject Stick;
@@ -41,13 +41,14 @@ public class StopStick : MonoBehaviour
         {
             rb2D.velocity = Vector2.zero;
             StickSpeed.Speed = 0;
-            Debug.Log("Merguez");
             departPlayer = true;
+            return;
             
         }
-        if(departPlayer == true){
+        if(collision.gameObject.tag == "StickFail"){
         Player.GetComponent<Rigidbody2D>().AddForce(Vector2.right * SpeedRight);
         departPlayer = false;
+        return;
         }
 
         /*else if (collision.gameObject.CompareTag("Stick")) {

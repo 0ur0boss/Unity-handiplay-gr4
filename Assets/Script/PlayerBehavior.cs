@@ -7,6 +7,7 @@ public class PlayerBehavior : MonoBehaviour
 {
     public Rigidbody2D rb2D;
     public int Speed = 25;
+
     Rigidbody2D m_rb2D;
     SpriteRenderer m_renderer;
 
