@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StopStick : MonoBehaviour
 {
@@ -62,6 +63,8 @@ public class StopStick : MonoBehaviour
         }
             
         }*/
+
+        SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
     }
 
     }
