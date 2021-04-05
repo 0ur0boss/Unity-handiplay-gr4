@@ -44,21 +44,8 @@ public class StopStick : MonoBehaviour
         departPlayer = false;
         StickSpeed.enabled = true;
         }
-
-        /*else if (collision.gameObject.CompareTag("Stick")) {
-            Debug.Log("Merguez");
-            GetComponent<Rigidbody2D>().AddForce(Vector2.right * Speed);
-            
-        /*float horizontalOffset = Input.GetAxis("Horizontal");
-        float verticalOffset = Input.GetAxis("Vertical");
-        if (Input.GetAxis("Horizontal") > 0f)
-        {
-            
-        }
-            
-        }*/
-
-      //SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
+      
+      SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
     }
 void DestroyComponent()
     {
