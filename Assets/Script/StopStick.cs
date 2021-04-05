@@ -45,9 +45,6 @@ public class StopStick : MonoBehaviour
         StickSpeed.enabled = true;
         }
 
-<<<<<<< HEAD
-        /*SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);*/
-=======
         /*else if (collision.gameObject.CompareTag("Stick")) {
             Debug.Log("Merguez");
             GetComponent<Rigidbody2D>().AddForce(Vector2.right * Speed);
@@ -62,7 +59,6 @@ public class StopStick : MonoBehaviour
         }*/
 
       //SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
->>>>>>> cfdf32f24ddd622fd5738d93bfbcba0a68ed292e
     }
 void DestroyComponent()
     {
