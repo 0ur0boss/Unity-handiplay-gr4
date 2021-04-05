@@ -11,6 +11,9 @@ public class PlayerBehavior : MonoBehaviour
     Rigidbody2D m_rb2D;
     SpriteRenderer m_renderer;
 
+void start(){
+    GetComponent<Rigidbody2D>().AddForce(Vector2.right * Speed);
+}
     void Awake()
     {
         m_rb2D = gameObject.GetComponent<Rigidbody2D>();

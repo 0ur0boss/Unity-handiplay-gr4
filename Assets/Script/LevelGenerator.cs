@@ -8,6 +8,7 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField]
     Transform[] sp;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,10 @@ public class LevelGenerator : MonoBehaviour
         
     }
 
+    void Awake(){
+        
+    }
+
     void SpawnPlateform()
     {
         int i = Random.Range(0,transform.childCount);
@@ -27,12 +32,15 @@ public class LevelGenerator : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+
+        if (collision.CompareTag("Player"))
         {
+            Debug.Log("Patate");
             SpawnPlateform();
-        }
+            
         
     }
+}
 }

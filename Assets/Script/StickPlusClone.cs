@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StickPlus : MonoBehaviour
+public class StickPlusClone : MonoBehaviour
 {
     Vector2 temp;
     public int compteur = 0;
@@ -12,7 +12,7 @@ public class StickPlus : MonoBehaviour
     Rigidbody2D m_rb2D;
     SpriteRenderer m_renderer;
 
-    private StickPlus MyStickPlus;
+    private StickPlusClone MyStickPlus;
 
 void Start(){
     compteur = 0;
@@ -25,7 +25,7 @@ void Awake()
 {
     m_rb2D = gameObject.GetComponent<Rigidbody2D>();
     m_renderer = gameObject.GetComponent<SpriteRenderer>();
-    MyStickPlus = GetComponent<StickPlus>();
+    MyStickPlus = GetComponent<StickPlusClone>();
     
 }
 void Update(){
