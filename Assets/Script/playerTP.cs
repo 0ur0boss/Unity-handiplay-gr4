@@ -41,7 +41,7 @@ public class playerTP : MonoBehaviour
             Destroy(GameObject.FindGameObjectWithTag("Stick"));
             Destroy(GameObject.FindGameObjectWithTag("PrefabStick"));
             GameObject a = Instantiate(prefabStick) as GameObject;
-            a.transform.position = new Vector3(-3.61f, -2.21f, 1f);
+            a.transform.position = new Vector3(-3.61f, -2.21f, -1f);
             a.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
