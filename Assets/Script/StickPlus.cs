@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class StickPlus : MonoBehaviour
 {
@@ -28,68 +29,71 @@ void Awake()
     MyStickPlus = GetComponent<StickPlus>();
     
 }
-void Update(){
- MyStickPlus = GetComponent<StickPlus>();
-if (Input.GetKeyDown(KeyCode.A))
+void Update()
 {
-stopStick = true;
-}
-
-
-if(stopStick == true)
-{
-    RotationDuStick();
-    return;
-}
-
-else if (stopStick == false){
-    
-}
-
-    if(compteur == 0)
+    MyStickPlus = GetComponent<StickPlus>();
+    foreach (KeyCode kcode in Enum.GetValues(typeof(KeyCode)))
+    if (Input.GetKeyDown (kcode))
+    //Event.current.keyCode
     {
-    print(compteur);
-    status = false;
+    stopStick = true;
     }
 
-    else if (compteur == 580)
+
+    if(stopStick == true)
     {
-    print(compteur);
-    status = true;
+        RotationDuStick();
+        return;
     }
 
-    if (status == true)
-    {
-    temp = transform.localScale;
-    temp.y -= Time.deltaTime;
-    transform.localScale = temp;
-    compteur--;
+    else if (stopStick == false){
+        
     }
 
-    else if (status == false)
-    {
-    temp = transform.localScale;
-    temp.y += Time.deltaTime;
-    transform.localScale = temp;
-    compteur++;
+        if(compteur == 0)
+        {
+        print(compteur);
+        status = false;
+        }
 
-   /* float smooth = 5.0f;
-    float tiltAngle = 90.0f;
+        else if (compteur == 580)
+        {
+        print(compteur);
+        status = true;
+        }
 
-    {
-        // Smoothly tilts a transform towards a target rotation.
-        float tiltAroundZ = Input.GetKeyDown(KeyCode.A) * tiltAngle;
+        if (status == true)
+        {
+        temp = transform.localScale;
+        temp.y -= Time.deltaTime;
+        transform.localScale = temp;
+        compteur--;
+        }
+
+        else if (status == false)
+        {
+        temp = transform.localScale;
+        temp.y += Time.deltaTime;
+        transform.localScale = temp;
+        compteur++;
+
+    /* float smooth = 5.0f;
+        float tiltAngle = 90.0f;
+
+        {
+            // Smoothly tilts a transform towards a target rotation.
+            float tiltAroundZ = Input.GetKeyDown(KeyCode.A) * tiltAngle;
 
 
-        // Rotate the cube by converting the angles into a quaternion.
-        Quaternion target = Quaternion.Euler(tiltAroundX, 0, tiltAroundZ);
+            // Rotate the cube by converting the angles into a quaternion.
+            Quaternion target = Quaternion.Euler(tiltAroundX, 0, tiltAroundZ);
 
-        // Dampen towards the target rotation
-        transform.rotation = Quaternion.Slerp(transform.rotation, target,  Time.deltaTime * smooth);
-    }*/
+            // Dampen towards the target rotation
+            transform.rotation = Quaternion.Slerp(transform.rotation, target,  Time.deltaTime * smooth);
+        }*/
     }
 
-}
+    }
     void RotationDuStick(){
         transform.Rotate(Vector3.back * Speed);
     
