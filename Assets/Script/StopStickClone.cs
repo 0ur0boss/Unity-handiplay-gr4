@@ -29,10 +29,10 @@ public class StopStickClone : MonoBehaviour
         
         if(collision.CompareTag("Stick") || collision.CompareTag("PrefabStick"))  
         {
-            m_rb2D2.velocity = Vector2.zero;
+           /* m_rb2D2.velocity = Vector2.zero;*/
             StickSpeed2.Speed = 0;
             oui();
-            Debug.Log("Merguez");
+            Debug.Log("Saucisse");
             departPlayer = true;
             
         }

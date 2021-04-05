@@ -29,6 +29,7 @@ void Awake()
     
 }
 void Update(){
+ MyStickPlus = GetComponent<StickPlus>();
 if (Input.GetKeyDown(KeyCode.A))
 {
 stopStick = true;

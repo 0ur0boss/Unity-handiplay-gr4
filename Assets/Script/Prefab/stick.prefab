@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 6570664996884637024}
   - component: {fileID: 6570664996884637039}
   - component: {fileID: 6570664996884637038}
-  - component: {fileID: -8357885014842833538}
+  - component: {fileID: -7765412735059744078}
   m_Layer: 0
   m_Name: stick
-  m_TagString: PrefabStick
+  m_TagString: Stick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6570664996884637037}
-  m_LocalRotation: {x: 0, y: 0.2588183, z: 0, w: -0.96592605}
+  m_LocalRotation: {x: 0, y: -0.17364892, z: 0, w: -0.9848076}
   m_LocalPosition: {x: -3.61, y: -2.21, z: 1}
   m_LocalScale: {x: 2.13, y: 0.10000001, z: 1}
   m_Children: []
@@ -132,7 +132,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-8357885014842833538
+--- !u!114 &-7765412735059744078
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,10 +141,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6570664996884637037}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7270e2bfc82eab4cbc326400c7dbdb5, type: 3}
+  m_Script: {fileID: 11500000, guid: dd6884a9d68daa34daeb639bb1654209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   compteur: 0
   status: 1
   stopStick: 0
-  Speed: 0
+  Speed: 2

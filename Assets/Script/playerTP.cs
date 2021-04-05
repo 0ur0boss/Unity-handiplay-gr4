@@ -17,7 +17,6 @@ public class playerTP : MonoBehaviour
 
     public GameObject prefabStick;
     private Vector3 StickClone;
-
     public Component MonScript;
 
     // Start is called before the first frame update
