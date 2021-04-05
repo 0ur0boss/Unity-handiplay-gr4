@@ -46,8 +46,6 @@ public GameObject StickClone;
         StickSpeed.enabled = true;
         StickSpeed2.enabled = true;
         }
-<<<<<<< HEAD
-=======
 
         /*else if (collision.gameObject.CompareTag("Stick")) {
             Debug.Log("Merguez");
@@ -63,7 +61,6 @@ public GameObject StickClone;
         }*/
 
         SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
->>>>>>> ec9e8f1e595704315da2bfcbf12a9b3eb8b2b759
     }
 
     }
