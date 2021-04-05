@@ -42,7 +42,7 @@ public GameObject StickClone;
         StickSpeed2.enabled = true;
         }
 
-        SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
+        //SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
     }
 
     }
