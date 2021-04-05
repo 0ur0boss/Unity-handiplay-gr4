@@ -12,7 +12,7 @@ public class StickPlusClone : MonoBehaviour
     Rigidbody2D m_rb2D2;
     SpriteRenderer m_renderer;
 
-    private StickPlusClone MyStickPlus;
+    public StickPlusClone MyStickPlus;
 
 void Start(){
     compteur = 0;
