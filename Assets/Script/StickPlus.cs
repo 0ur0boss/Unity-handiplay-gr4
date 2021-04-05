@@ -61,7 +61,7 @@ void Update()
         status = false;
         }
 
-        else if (compteur == 580)
+        else if (compteur == 1580)
         {
         print(compteur);
         status = true;

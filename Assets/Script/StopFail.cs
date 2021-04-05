@@ -26,31 +26,41 @@ public class StopFail : MonoBehaviour
    public void Update()
     {
 
+
+
+        
     }
 
     void oui()
     {
         StickSpeed.Speed = 0;
         departPlayer = false;
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision) 
     {
+
         departPlayer = false;
+        
         
         if(collision.CompareTag("Stick"))  
         {
             rb2D.velocity = Vector2.zero;
             StickSpeed.Speed = 0;
             departPlayer = true;
+            SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
             return;
+
             
         }
         if(collision.gameObject.tag == "StickFail"){
         Player.GetComponent<Rigidbody2D>().AddForce(Vector2.right * SpeedRight);
         departPlayer = false;
+
         return;
-        SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
+
         }
 
         /*else if (collision.gameObject.CompareTag("Stick")) {
