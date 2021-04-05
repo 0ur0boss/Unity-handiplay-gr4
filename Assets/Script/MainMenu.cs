@@ -25,7 +25,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame () 
     {
-        SceneManager.LoadScene("Game", LoadSceneMode.Additive);
+        SceneManager.LoadScene(LevelToLoad);
     }
 
     public void SettingsButtons () 
