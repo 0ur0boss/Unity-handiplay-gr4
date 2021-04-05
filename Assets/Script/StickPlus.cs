@@ -51,7 +51,7 @@ else if (stopStick == false){
     status = false;
     }
 
-    else if (compteur == 580)
+    else if (compteur == 2500)
     {
     print(compteur);
     status = true;

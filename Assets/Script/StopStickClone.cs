@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class StopStickClone : MonoBehaviour
 {
     public Rigidbody2D rb2D;
-public GameObject StickClone;
+    public GameObject StickClone;
     public StickPlusClone StickSpeed2;
 
     public int Speed = 10;
