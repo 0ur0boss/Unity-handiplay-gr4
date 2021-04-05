@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: "Assets/Scenes/Menu Emma et Mat\xE9o.unity"
-    guid: 8a822b1fe44cd574b8d17c57f7ce2805
+    path: Assets/Scenes/FinalGame/Menu.unity
+    guid: 8c148be4c8bfe4840b770af6bb42d547
+  - enabled: 1
+    path: Assets/Scenes/FinalGame/Game.unity
+    guid: d910f566cc654ba4f924c5ab6b0416fe
+  - enabled: 1
+    path: Assets/Scenes/FinalGame/GameOver.unity
+    guid: 1fd04ea198785fc47bca2cd05f79e22f
   m_configObjects: {}

@@ -37,6 +37,7 @@ public class StopStick : MonoBehaviour
             Debug.Log("Merguez");
             departPlayer = true;
             DestroyComponent();
+
         }
                
         if(departPlayer == true){
@@ -45,7 +46,7 @@ public class StopStick : MonoBehaviour
         StickSpeed.enabled = true;
         }
       
-      SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
+      
     }
 void DestroyComponent()
     {

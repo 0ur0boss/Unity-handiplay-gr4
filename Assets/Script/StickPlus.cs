@@ -39,6 +39,14 @@ void Update()
     stopStick = true;
     }
 
+<<<<<<< HEAD
+=======
+    else if (compteur == 2500)
+    {
+    print(compteur);
+    status = true;
+    }
+>>>>>>> 1a59cf51837d494f51f83a9d7da67379be66cf8d
 
     if(stopStick == true)
     {
