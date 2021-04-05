@@ -54,8 +54,26 @@ public GameObject StickClone;
         StickSpeed.enabled = true;
         StickSpeed2.enabled = true;
         }
+<<<<<<< HEAD
 
         /*SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);*/
+=======
+
+        /*else if (collision.gameObject.CompareTag("Stick")) {
+            Debug.Log("Merguez");
+            GetComponent<Rigidbody2D>().AddForce(Vector2.right * Speed);
+            
+        /*float horizontalOffset = Input.GetAxis("Horizontal");
+        float verticalOffset = Input.GetAxis("Vertical");
+        if (Input.GetAxis("Horizontal") > 0f)
+        {
+            
+        }
+            
+        }*/
+
+        SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
+>>>>>>> 4d51402bf06624c8c672bf75cbf4f9d795f178ca
     }
 
     }
