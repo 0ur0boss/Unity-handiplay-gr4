@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 
 public class MainMenu : MonoBehaviour
 {
-    public string LevelToLoad;
+    public string levelToLoad;
     public GameObject menuWindow;
     public GameObject settingsWindow;
     public GameObject creditsWindow;
@@ -25,7 +25,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame () 
     {
-        SceneManager.LoadScene("Game", LoadSceneMode.Additive);
+        SceneManager.LoadScene(levelToLoad);
     }
 
     public void SettingsButtons () 

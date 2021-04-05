@@ -3747,7 +3747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94fd5b269356932449f7274ad28d87d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelToLoad: Game
+  levelToLoad: Game
   menuWindow: {fileID: 1330891461}
   settingsWindow: {fileID: 262514884}
   creditsWindow: {fileID: 68675362}
