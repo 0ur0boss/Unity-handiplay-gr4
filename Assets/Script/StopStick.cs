@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StopStick : MonoBehaviour
 {
@@ -45,6 +46,24 @@ public GameObject StickClone;
         StickSpeed.enabled = true;
         StickSpeed2.enabled = true;
         }
+<<<<<<< HEAD
+=======
+
+        /*else if (collision.gameObject.CompareTag("Stick")) {
+            Debug.Log("Merguez");
+            GetComponent<Rigidbody2D>().AddForce(Vector2.right * Speed);
+            
+        /*float horizontalOffset = Input.GetAxis("Horizontal");
+        float verticalOffset = Input.GetAxis("Vertical");
+        if (Input.GetAxis("Horizontal") > 0f)
+        {
+            
+        }
+            
+        }*/
+
+        SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
+>>>>>>> ec9e8f1e595704315da2bfcbf12a9b3eb8b2b759
     }
 
     }
