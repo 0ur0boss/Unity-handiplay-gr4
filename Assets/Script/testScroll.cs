@@ -1,219 +1,60 @@
-using System.Collections.Generic;
-using UnityEngine.EventSystems;
-
-namespace UnityEngine.UI.Extensions
-{
-    [RequireComponent(typeof(ScrollRect))]
-    [AddComponentMenu("UI/Extensions/UIScrollToSelection")]
-    public class UIScrollToSelection : MonoBehaviour
-    {
-
-        //*** ATTRIBUTES ***//
-        [Header("[ Settings ]")]
-        [SerializeField]
-        private ScrollType scrollDirection;
-        [SerializeField]
-        private float scrollSpeed = 10f;
-
-        [Header("[ Input ]")]
-        [SerializeField]
-        private bool cancelScrollOnInput = false;
-        [SerializeField]
-        private List<KeyCode> cancelScrollKeycodes = new List<KeyCode>();
-
-        //*** PROPERTIES ***//
-        // REFERENCES
-        protected RectTransform LayoutListGroup
-        {
-            get { return TargetScrollRect != null ? TargetScrollRect.content : null; }
+    using UnityEngine;
+    using UnityEngine.UI;
+    using UnityEngine.EventSystems;
+    using System.Collections;
+     
+    public class ScrollRectPosition : MonoBehaviour {
+     
+        RectTransform scrollRectTransform;
+        RectTransform contentPanel;
+        RectTransform selectedRectTransform;
+        GameObject lastSelected;
+     
+        void Start() {
+            scrollRectTransform = GetComponent<RectTransform>();
+            contentPanel = GetComponent<ScrollRect>().content;
         }
-
-        // SETTINGS
-        protected ScrollType ScrollDirection
-        {
-            get { return scrollDirection; }
-        }
-        protected float ScrollSpeed
-        {
-            get { return scrollSpeed; }
-        }
-
-        // INPUT
-        protected bool CancelScrollOnInput
-        {
-            get { return cancelScrollOnInput; }
-        }
-        protected List<KeyCode> CancelScrollKeycodes
-        {
-            get { return cancelScrollKeycodes; }
-        }
-
-        // CACHED REFERENCES
-        protected RectTransform ScrollWindow { get; set; }
-        protected ScrollRect TargetScrollRect { get; set; }
-
-        // SCROLLING
-        protected EventSystem CurrentEventSystem
-        {
-            get { return EventSystem.current; }
-        }
-        protected GameObject LastCheckedGameObject { get; set; }
-        protected GameObject CurrentSelectedGameObject
-        {
-            get { return EventSystem.current.currentSelectedGameObject; }
-        }
-        protected RectTransform CurrentTargetRectTransform { get; set; }
-        protected bool IsManualScrollingAvailable { get; set; }
-
-        //*** METHODS - PUBLIC ***//
-
-
-        //*** METHODS - PROTECTED ***//
-        protected virtual void Awake()
-        {
-            TargetScrollRect = GetComponent<ScrollRect>();
-            ScrollWindow = TargetScrollRect.GetComponent<RectTransform>();
-        }
-
-        protected virtual void Start()
-        {
-
-        }
-
-        protected virtual void Update()
-        {
-            UpdateReferences();
-            CheckIfScrollingShouldBeLocked();
-            ScrollRectToLevelSelection();
-        }
-
-        //*** METHODS - PRIVATE ***//
-        private void UpdateReferences()
-        {
-            // update current selected rect transform
-            if (CurrentSelectedGameObject != LastCheckedGameObject)
-            {
-                CurrentTargetRectTransform = (CurrentSelectedGameObject != null) ?
-                    CurrentSelectedGameObject.GetComponent<RectTransform>() :
-                    null;
-
-                // unlock automatic scrolling
-                if (CurrentSelectedGameObject != null &&
-                    CurrentSelectedGameObject.transform.parent == LayoutListGroup.transform)
-                {
-                    IsManualScrollingAvailable = false;
-                }
-            }
-
-            LastCheckedGameObject = CurrentSelectedGameObject;
-        }
-
-        private void CheckIfScrollingShouldBeLocked()
-        {
-            if (CancelScrollOnInput == false || IsManualScrollingAvailable == true)
-            {
+     
+        void Update() {
+            // Get the currently selected UI element from the event system.
+            GameObject selected = EventSystem.current.currentSelectedGameObject;
+     
+            // Return if there are none.
+            if (selected == null) {
                 return;
             }
-
-            for (int i = 0; i < CancelScrollKeycodes.Count; i++)
-            {
-                if (Input.GetKeyDown(CancelScrollKeycodes[i]) == true)
-                {
-                    IsManualScrollingAvailable = true;
-
-                    break;
-                }
-            }
-        }
-
-        private void ScrollRectToLevelSelection()
-        {
-            // check main references
-            bool referencesAreIncorrect = (TargetScrollRect == null || LayoutListGroup == null || ScrollWindow == null);
-
-            if (referencesAreIncorrect == true || IsManualScrollingAvailable == true)
-            {
+            // Return if the selected game object is not inside the scroll rect.
+            if (selected.transform.parent != contentPanel.transform) {
                 return;
             }
-
-            RectTransform selection = CurrentTargetRectTransform;
-
-            // check if scrolling is possible
-            if (selection == null || selection.transform.parent != LayoutListGroup.transform)
-            {
+            // Return if the selected game object is the same as it was last frame,
+            // meaning we haven't moved.
+            if (selected == lastSelected) {
                 return;
             }
-
-            // depending on selected scroll direction move the scroll rect to selection
-            switch (ScrollDirection)
-            {
-                case ScrollType.VERTICAL:
-                    UpdateVerticalScrollPosition(selection);
-                    break;
-                case ScrollType.HORIZONTAL:
-                    UpdateHorizontalScrollPosition(selection);
-                    break;
-                case ScrollType.BOTH:
-                    UpdateVerticalScrollPosition(selection);
-                    UpdateHorizontalScrollPosition(selection);
-                    break;
+     
+            // Get the rect tranform for the selected game object.
+            selectedRectTransform = selected.GetComponent<RectTransform>();
+            // The position of the selected UI element is the absolute anchor position,
+            // ie. the local position within the scroll rect + its height if we're
+            // scrolling down. If we're scrolling up it's just the absolute anchor position.
+            float selectedPositionY = Mathf.Abs(selectedRectTransform.anchoredPosition.y) + selectedRectTransform.rect.height;
+     
+            // The upper bound of the scroll view is the anchor position of the content we're scrolling.
+            float scrollViewMinY = contentPanel.anchoredPosition.y;
+            // The lower bound is the anchor position + the height of the scroll rect.
+            float scrollViewMaxY = contentPanel.anchoredPosition.y + scrollRectTransform.rect.height;
+     
+            // If the selected position is below the current lower bound of the scroll view we scroll down.
+            if (selectedPositionY > scrollViewMaxY) {
+                float newY = selectedPositionY - scrollRectTransform.rect.height;
+                contentPanel.anchoredPosition = new Vector2(contentPanel.anchoredPosition.x, newY);
             }
-        }
-
-        private void UpdateVerticalScrollPosition(RectTransform selection)
-        {
-            // move the current scroll rect to correct position
-            float selectionPosition = -selection.anchoredPosition.y - (selection.rect.height * (1 - selection.pivot.y));
-
-            float elementHeight = selection.rect.height;
-            float maskHeight = ScrollWindow.rect.height;
-            float listAnchorPosition = LayoutListGroup.anchoredPosition.y;
-
-            // get the element offset value depending on the cursor move direction
-            float offlimitsValue = GetScrollOffset(selectionPosition, listAnchorPosition, elementHeight, maskHeight);
-
-            // move the target scroll rect
-            TargetScrollRect.verticalNormalizedPosition +=
-                (offlimitsValue / LayoutListGroup.rect.height) * Time.unscaledDeltaTime * scrollSpeed;
-        }
-
-        private void UpdateHorizontalScrollPosition(RectTransform selection)
-        {
-            // move the current scroll rect to correct position
-            float selectionPosition = -selection.anchoredPosition.x - (selection.rect.width * (1 - selection.pivot.x));
-
-            float elementWidth = selection.rect.width;
-            float maskWidth = ScrollWindow.rect.width;
-            float listAnchorPosition = -LayoutListGroup.anchoredPosition.x;
-
-            // get the element offset value depending on the cursor move direction
-            float offlimitsValue = -GetScrollOffset(selectionPosition, listAnchorPosition, elementWidth, maskWidth);
-
-            // move the target scroll rect
-            TargetScrollRect.horizontalNormalizedPosition +=
-                (offlimitsValue / LayoutListGroup.rect.width) * Time.unscaledDeltaTime * scrollSpeed;
-        }
-
-        private float GetScrollOffset(float position, float listAnchorPosition, float targetLength, float maskLength)
-        {
-            if (position < listAnchorPosition + (targetLength / 2))
-            {
-                return (listAnchorPosition + maskLength) - (position - targetLength);
+            // If the selected position is above the current upper bound of the scroll view we scroll up.
+            else if (Mathf.Abs(selectedRectTransform.anchoredPosition.y) < scrollViewMinY) {
+                contentPanel.anchoredPosition = new Vector2(contentPanel.anchoredPosition.x, Mathf.Abs(selectedRectTransform.anchoredPosition.y));
             }
-            else if (position + targetLength > listAnchorPosition + maskLength)
-            {
-                return (listAnchorPosition + maskLength) - (position + targetLength);
-            }
-
-            return 0;
-        }
-
-        //*** ENUMS ***//
-        public enum ScrollType
-        {
-            VERTICAL,
-            HORIZONTAL,
-            BOTH
+     
+            lastSelected = selected;
         }
     }
-}
