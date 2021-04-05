@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StopStick : MonoBehaviour
+public class StopStickClone : MonoBehaviour
 {
     public Rigidbody2D rb2D;
-    public GameObject Stick;
-    public StickPlus StickSpeed;
-
 public GameObject StickClone;
     public StickPlusClone StickSpeed2;
 
     public int Speed = 10;
     Rigidbody2D m_rb2D;
+
+    Rigidbody2D m_rb2D2;
     SpriteRenderer m_renderer;
 
     public bool departPlayer;
@@ -21,8 +20,6 @@ public GameObject StickClone;
     public GameObject Player;
     void oui()
     {
-        StickSpeed.Speed = 0;
-
         StickSpeed2.Speed = 0;
     }
 
@@ -32,30 +29,20 @@ public GameObject StickClone;
         
         if(collision.CompareTag("Stick") || collision.CompareTag("PrefabStick"))  
         {
-            rb2D.velocity = Vector2.zero;
-            StickSpeed.Speed = 0;
+            m_rb2D2.velocity = Vector2.zero;
             StickSpeed2.Speed = 0;
             oui();
             Debug.Log("Merguez");
             departPlayer = true;
-        
-        if (gameObject != null)
-    {    
-    
-        GetComponent<StickPlusClone>();
-        GetComponent<StopStickClone>();
-        
-    }
             
         }
         if(departPlayer == true){
         Player.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 150);
         departPlayer = false;
-        StickSpeed.enabled = true;
         StickSpeed2.enabled = true;
         }
 
-        /*SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);*/
+        SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
     }
 
     }

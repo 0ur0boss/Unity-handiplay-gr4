@@ -9,7 +9,7 @@ public class StickPlusClone : MonoBehaviour
    public bool status = true;
    public bool stopStick = false;
    public int Speed = 2;
-    Rigidbody2D m_rb2D;
+    Rigidbody2D m_rb2D2;
     SpriteRenderer m_renderer;
 
     private StickPlusClone MyStickPlus;
@@ -23,7 +23,7 @@ void Start(){
 }
 void Awake()
 {
-    m_rb2D = gameObject.GetComponent<Rigidbody2D>();
+    m_rb2D2 = gameObject.GetComponent<Rigidbody2D>();
     m_renderer = gameObject.GetComponent<SpriteRenderer>();
     MyStickPlus = GetComponent<StickPlusClone>();
     
