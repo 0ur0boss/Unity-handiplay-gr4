@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StopFail : MonoBehaviour
 {
@@ -49,6 +50,7 @@ public class StopFail : MonoBehaviour
         Player.GetComponent<Rigidbody2D>().AddForce(Vector2.right * SpeedRight);
         departPlayer = false;
         return;
+        SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
         }
 
         /*else if (collision.gameObject.CompareTag("Stick")) {
@@ -63,6 +65,8 @@ public class StopFail : MonoBehaviour
         }
             
         }*/
+
+        
     }
 
     }

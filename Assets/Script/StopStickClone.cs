@@ -42,7 +42,7 @@ public class StopStickClone : MonoBehaviour
         StickSpeed2.enabled = true;
         }
 
-        //SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
+        
     }
 
     }
